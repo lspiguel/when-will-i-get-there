@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="21ef97e2-8b98-4a23-a7e5-338bc7bc9605" ChangeDateTime="10/14/2019 03:00:23">
+    <Property Name="ElementName" Value="[dbo].[FK_Trips_AspNetUsers]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Trips]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Trips_AspNetUsers_UserId]" />
+  </Operation>
+</Operations>

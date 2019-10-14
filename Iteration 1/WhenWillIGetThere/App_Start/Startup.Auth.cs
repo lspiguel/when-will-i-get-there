@@ -47,9 +47,9 @@ namespace WhenWillIGetThere
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
             // Uncomment the following lines to enable logging in with third party login providers
-            app.UseMicrosoftAccountAuthentication(
-                clientId: "b2d03563-4eb0-40f8-add7-0325c535915e",
-                clientSecret: "w7T=jMF4pHiwoLudzM12_TnCh]xnDnz-");
+            //app.UseMicrosoftAccountAuthentication(
+            //    clientId: "b2d03563-4eb0-40f8-add7-0325c535915e",
+            //    clientSecret: "w7T=jMF4pHiwoLudzM12_TnCh]xnDnz-");
 
             //app.UseTwitterAuthentication(
             //   consumerKey: "",
