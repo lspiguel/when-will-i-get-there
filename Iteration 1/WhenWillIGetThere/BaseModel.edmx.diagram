@@ -9,13 +9,15 @@
         <EntityTypeShape EntityType="Model.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.AspNetUsers" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Commutes" Width="1.5" PointX="7.5" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Routes" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
         <AssociationConnector Association="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Trips_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_Commutes_Routes_Id_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.C__RefactorLog" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.Commutes" Width="1.5" PointX="7.5" PointY="6.75" />
+        <EntityTypeShape EntityType="Model.Routes" Width="1.5" PointX="5.25" PointY="6.75" />
+        <AssociationConnector Association="Model.FK_Trips_AspNetUsers_UserId" />
+        <AssociationConnector Association="Model.FK_Commutes_Routes_Id_UserId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

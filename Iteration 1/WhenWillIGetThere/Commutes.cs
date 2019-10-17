@@ -15,7 +15,7 @@ namespace WhenWillIGetThere
     public partial class Commutes
     {
         public int Id { get; set; }
-        public string UserId { get; set; }
+        public int RouteId { get; set; }
         public System.DateTime Start { get; set; }
         public Nullable<System.DateTime> Stop { get; set; }
     
