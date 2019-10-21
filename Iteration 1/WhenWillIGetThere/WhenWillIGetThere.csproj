@@ -182,6 +182,7 @@
       <LastGenOutput>BaseModel.cs</LastGenOutput>
     </Content>
     <Content Include="Commute\List.aspx" />
+    <Content Include="Commute\StartStop.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -397,6 +398,13 @@
     </Compile>
     <Compile Include="Commute\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Commute\StartStop.aspx.cs">
+      <DependentUpon>StartStop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Commute\StartStop.aspx.designer.cs">
+      <DependentUpon>StartStop.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
