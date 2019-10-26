@@ -68,7 +68,7 @@ namespace WhenWillIGetThere.Commute
                     var r = startedCommutes.First();
                     hidCommuteId.Value = r.CommuteId.ToString();
                     lblRoute.Text = "Route: " + System.Web.HttpUtility.HtmlEncode(r.Name);
-                    lblStart.Text = r.Start.ToString();
+                    lblStart.Text = "An commute counter is currently running, started on " + r.Start.ToString();
                 }
                 else
                 {

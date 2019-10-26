@@ -4,5 +4,5 @@
     <h2><%: Title %>.</h2>
     <p>This lists your existing commutes.</p>
 
-    <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+    <asp:GridView CssClass="table" ID="GridView1" runat="server"></asp:GridView>
 </asp:Content>

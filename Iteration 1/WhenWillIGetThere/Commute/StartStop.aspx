@@ -6,8 +6,8 @@
     <asp:Label ID="lblRoute" runat="server" Text="Label"></asp:Label>
     <hr />
     <asp:HiddenField ID="hidCommuteId" runat="server" />
-    <asp:Label ID="lblStart" runat="server" Text="Label"></asp:Label>
-    <asp:Button ID="btnStart" runat="server" Text="Start" OnClick="btnStart_Click" />
-    <asp:Button ID="btnStop" runat="server" Text="Stop" OnClick="btnStop_Click" />
+    <asp:Label ID="lblStart" runat="server"></asp:Label><br /><br />
+    <asp:Button ID="btnStart" CssClass="btn btn-primary" runat="server" Text="Start" OnClick="btnStart_Click" />
+    <asp:Button ID="btnStop" CssClass="btn btn-danger" runat="server" Text="Stop" OnClick="btnStop_Click" />
 
 </asp:Content>

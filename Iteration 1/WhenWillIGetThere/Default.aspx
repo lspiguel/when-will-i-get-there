@@ -3,38 +3,37 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        <h1>When will I get there?</h1>
+        <p class="lead">
+            This mini-app allows to record the starting and ending times for your commutes. By recording times, an ETA can be calculated
+            and also some visualizations can be constructed to help you get a hold of patterns in your commute.<br />
+            You should probably record for some time before coming back.
+        </p>
     </div>
 
     <div class="row">
         <div class="col-md-4">
-            <h2>Getting started</h2>
+            <h2>List</h2>
             <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
+                List the recorded that over here.
             </p>
             <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
+                <a class="btn btn-default" runat="server" href="~/Commute/List">List &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
-            <h2>Web Hosting</h2>
+            <h2>Record</h2>
             <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
+                Mark the start or end of a commute.
             </p>
             <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
+                <a class="btn btn-default" runat="server" href="~/Commute/StartStop">Start/Stop a counter &raquo;</a>
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2>More</h2>
+            <p>
+                More will be comming along soon.
             </p>
         </div>
     </div>
