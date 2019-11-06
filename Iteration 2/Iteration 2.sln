@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29409.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhenWillIGetThere", "WhenWillIGetThere\WhenWillIGetThere.csproj", "{A22A9DF8-2831-4BCE-9F53-CA2F961BC4DE}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "WWIGT-Database", "WWIGT-Database\WWIGT-Database.sqlproj", "{71733778-E373-4C16-BDAC-2AE2A995877F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A22A9DF8-2831-4BCE-9F53-CA2F961BC4DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A22A9DF8-2831-4BCE-9F53-CA2F961BC4DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A22A9DF8-2831-4BCE-9F53-CA2F961BC4DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A22A9DF8-2831-4BCE-9F53-CA2F961BC4DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71733778-E373-4C16-BDAC-2AE2A995877F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71733778-E373-4C16-BDAC-2AE2A995877F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71733778-E373-4C16-BDAC-2AE2A995877F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{71733778-E373-4C16-BDAC-2AE2A995877F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71733778-E373-4C16-BDAC-2AE2A995877F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71733778-E373-4C16-BDAC-2AE2A995877F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {76648104-592C-4FF2-83BD-08E9BBFA918A}
+	EndGlobalSection
+EndGlobal
