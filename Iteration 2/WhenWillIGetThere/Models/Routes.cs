@@ -14,7 +14,7 @@ namespace WhenWillIGetThere.Models
         public string UserId { get; set; }
         public string Name { get; set; }
 
-        public virtual AspNetUsers User { get; set; }
+        public virtual ApplicationUser User { get; set; }
         public virtual ICollection<Commutes> Commutes { get; set; }
     }
 }
