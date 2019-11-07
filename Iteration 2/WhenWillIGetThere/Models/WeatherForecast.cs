@@ -1,6 +1,6 @@
 using System;
 
-namespace WhenWillIGetThere
+namespace WhenWillIGetThere.Models
 {
     public class WeatherForecast
     {
