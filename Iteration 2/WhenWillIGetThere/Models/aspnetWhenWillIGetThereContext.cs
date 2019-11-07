@@ -1,17 +1,18 @@
 ﻿using System;
+using IdentityServer4.EntityFramework.Options;
+using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Options;
+using WhenWillIGetThere.Models;
 
-namespace WhenWillIGetThere.Models
+namespace WhenWillIGetThere.Data
 {
-    public partial class aspnetWhenWillIGetThereContext : DbContext
+    public partial class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
     {
-        public aspnetWhenWillIGetThereContext()
-        {
-        }
-
-        public aspnetWhenWillIGetThereContext(DbContextOptions<aspnetWhenWillIGetThereContext> options)
-            : base(options)
+        public ApplicationDbContext(
+             DbContextOptions options,
+             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
         }
 
@@ -29,6 +30,8 @@ namespace WhenWillIGetThere.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<AspNetRoleClaims>(entity =>
             {
                 entity.HasIndex(e => e.RoleId);
