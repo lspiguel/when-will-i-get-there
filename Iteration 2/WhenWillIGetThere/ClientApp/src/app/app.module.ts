@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './common/nav-menu/nav-menu.component';
@@ -12,8 +13,12 @@ import { FetchDataComponent } from './guidance/fetch-data/fetch-data.component';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
+import { ErrorPageComponent } from "./common/error-page/ErrorPageComponent";
 import { GuidanceHomeComponent } from './guidance/guidance-home.component';
 import { GuidanceComponent } from './guidance/guidance.component';
+import { CommutesComponent } from './commutes/commutes.component';
+import { CommuteListComponent } from './commutes/commute-list/commute-list.component';
+import { CommuteItemComponent } from './commutes/commute-item/commute-item.component';
 
 @NgModule({
   declarations: [
@@ -23,23 +28,17 @@ import { GuidanceComponent } from './guidance/guidance.component';
     GuidanceComponent,
     GuidanceHomeComponent,
     CounterComponent,
-    FetchDataComponent
+    FetchDataComponent,
+    CommutesComponent,
+    CommuteListComponent,
+    CommuteItemComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     ApiAuthorizationModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'guidance', component: GuidanceComponent,
-          children: [
-              { path: '', component: GuidanceHomeComponent },
-              { path: 'counter', component: CounterComponent },
-              { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
-          ]
-          },
-    ])
+    AppRoutingModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
