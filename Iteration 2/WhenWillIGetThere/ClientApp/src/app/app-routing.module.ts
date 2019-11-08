@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ErrorPageComponent } from "./common/error-page/ErrorPageComponent";
+import { ErrorPageComponent } from "./common/error-page/error-page.component";
+import { AuthorizeGuard } from '../api-authorization/authorize.guard';
 
 import { HomeComponent } from './common/home/home.component';
 
@@ -10,10 +11,11 @@ import { GuidanceHomeComponent } from './guidance/guidance-home.component';
 import { CounterComponent } from './guidance/counter/counter.component';
 import { FetchDataComponent } from './guidance/fetch-data/fetch-data.component';
 
-import { AuthorizeGuard } from '../api-authorization/authorize.guard';
+import { CommutesComponent } from './commutes/commutes.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent, pathMatch: 'full' },
+    { path: 'commutes', component: CommutesComponent},
     {
         path: 'guidance', component: GuidanceComponent,
         children: [

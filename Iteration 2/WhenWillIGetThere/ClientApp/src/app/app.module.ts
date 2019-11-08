@@ -13,7 +13,7 @@ import { FetchDataComponent } from './guidance/fetch-data/fetch-data.component';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
-import { ErrorPageComponent } from "./common/error-page/ErrorPageComponent";
+import { ErrorPageComponent } from "./common/error-page/error-page.component";
 import { GuidanceHomeComponent } from './guidance/guidance-home.component';
 import { GuidanceComponent } from './guidance/guidance.component';
 import { CommutesComponent } from './commutes/commutes.component';
@@ -31,7 +31,8 @@ import { CommuteItemComponent } from './commutes/commute-item/commute-item.compo
     FetchDataComponent,
     CommutesComponent,
     CommuteListComponent,
-    CommuteItemComponent
+    CommuteItemComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
