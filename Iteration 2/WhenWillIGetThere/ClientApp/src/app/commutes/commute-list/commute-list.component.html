@@ -1,7 +1,14 @@
-<div class="row">
-    <div class="col-xs-12">
-        <app-commute-item>
-            
-        </app-commute-item>
-    </div>
-</div>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Route</th>
+        <th scope="col">Start</th>
+        <th scope="col">Stop</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="app-commute-item" *ngFor="let commute of commuteService.commutes;" [commute]="commute">
+        </tr>
+    </tbody>
+</table>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommutesService } from '../commutes.service';
 
 @Component({
   selector: 'app-commute-list',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommuteListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private commuteService: CommutesService) { }
 
   ngOnInit() {
   }
