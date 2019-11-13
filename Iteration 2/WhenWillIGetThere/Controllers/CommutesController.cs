@@ -11,7 +11,7 @@ using WhenWillIGetThere.Data;
 
 namespace WhenWillIGetThere.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CommutesController : ControllerBase

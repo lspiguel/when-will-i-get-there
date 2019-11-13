@@ -10,7 +10,8 @@ export class CommuteListComponent implements OnInit {
 
   constructor(private commuteService: CommutesService) { }
 
-  ngOnInit() {
+    ngOnInit() {
+        this.commuteService.refreshCommutes();
   }
 
 }
