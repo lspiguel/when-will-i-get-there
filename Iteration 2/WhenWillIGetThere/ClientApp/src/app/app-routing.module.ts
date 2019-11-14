@@ -15,7 +15,7 @@ import { CommutesComponent } from './commutes/commutes.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent, pathMatch: 'full' },
-    { path: 'commutes', component: CommutesComponent},
+    { path: 'commutes', component: CommutesComponent, canActivate: [AuthorizeGuard]},
     {
         path: 'guidance', component: GuidanceComponent,
         children: [

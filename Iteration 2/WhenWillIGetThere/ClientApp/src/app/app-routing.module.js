@@ -18,7 +18,7 @@ var fetch_data_component_1 = require("./guidance/fetch-data/fetch-data.component
 var commutes_component_1 = require("./commutes/commutes.component");
 var routes = [
     { path: '', component: home_component_1.HomeComponent, pathMatch: 'full' },
-    { path: 'commutes', component: commutes_component_1.CommutesComponent },
+    { path: 'commutes', component: commutes_component_1.CommutesComponent, canActivate: [authorize_guard_1.AuthorizeGuard] },
     {
         path: 'guidance', component: guidance_component_1.GuidanceComponent,
         children: [
