@@ -11,11 +11,21 @@ import { GuidanceHomeComponent } from './guidance/guidance-home.component';
 import { CounterComponent } from './guidance/counter/counter.component';
 import { FetchDataComponent } from './guidance/fetch-data/fetch-data.component';
 
+import { RecordComponent } from './record/record.component';
 import { CommutesComponent } from './commutes/commutes.component';
+import { StartComponent } from './record/start/start.component';
+import { StopComponent } from './record/stop/stop.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent, pathMatch: 'full' },
-    { path: 'commutes', component: CommutesComponent, canActivate: [AuthorizeGuard]},
+    {
+        path: 'record', component: RecordComponent, canActivate: [AuthorizeGuard],
+        children: [
+            { path: 'start', component: StartComponent },
+            { path: 'stop', component: StopComponent }
+        ]
+    },
+    { path: 'commutes', component: CommutesComponent, canActivate: [AuthorizeGuard] },
     {
         path: 'guidance', component: GuidanceComponent,
         children: [

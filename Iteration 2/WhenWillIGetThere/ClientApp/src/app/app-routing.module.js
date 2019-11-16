@@ -15,9 +15,19 @@ var guidance_component_1 = require("./guidance/guidance.component");
 var guidance_home_component_1 = require("./guidance/guidance-home.component");
 var counter_component_1 = require("./guidance/counter/counter.component");
 var fetch_data_component_1 = require("./guidance/fetch-data/fetch-data.component");
+var record_component_1 = require("./record/record.component");
 var commutes_component_1 = require("./commutes/commutes.component");
+var start_component_1 = require("./record/start/start.component");
+var stop_component_1 = require("./record/stop/stop.component");
 var routes = [
     { path: '', component: home_component_1.HomeComponent, pathMatch: 'full' },
+    {
+        path: 'record', component: record_component_1.RecordComponent, canActivate: [authorize_guard_1.AuthorizeGuard],
+        children: [
+            { path: 'start', component: start_component_1.StartComponent },
+            { path: 'stop', component: stop_component_1.StopComponent }
+        ]
+    },
     { path: 'commutes', component: commutes_component_1.CommutesComponent, canActivate: [authorize_guard_1.AuthorizeGuard] },
     {
         path: 'guidance', component: guidance_component_1.GuidanceComponent,

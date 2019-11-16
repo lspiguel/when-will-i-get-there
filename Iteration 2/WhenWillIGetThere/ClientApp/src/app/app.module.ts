@@ -19,6 +19,9 @@ import { GuidanceComponent } from './guidance/guidance.component';
 import { CommutesComponent } from './commutes/commutes.component';
 import { CommuteListComponent } from './commutes/commute-list/commute-list.component';
 import { CommuteItemComponent } from './commutes/commute-item/commute-item.component';
+import { RecordComponent } from './record/record.component';
+import { StartComponent } from './record/start/start.component';
+import { StopComponent } from './record/stop/stop.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { CommuteItemComponent } from './commutes/commute-item/commute-item.compo
     CommutesComponent,
     CommuteListComponent,
     CommuteItemComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    RecordComponent,
+    StartComponent,
+    StopComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
