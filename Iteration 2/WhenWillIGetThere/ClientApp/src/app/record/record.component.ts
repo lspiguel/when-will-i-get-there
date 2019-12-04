@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommutesService } from '../services/commutes.service';
 
 @Component({
   selector: 'app-record',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecordComponent implements OnInit {
 
-  constructor() { }
+    constructor(private commuteService: CommutesService) { }
 
-  ngOnInit() {
+    ngOnInit() {
+        this.commuteService.refreshRoutes();
   }
 
 }

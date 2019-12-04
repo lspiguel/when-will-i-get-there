@@ -1,6 +1,11 @@
 <div class="row">
   <div class="col-md-12 offset-md-1">
-    <p>The current route is:</p>
+    <p>
+      The current route is:
+      <select id="routes">
+        <option [value]="route.id" *ngFor="let route of commuteService.routes;">{{ route.name }}</option>
+      </select>
+    </p>
     <p>Changing routes is coming soon</p>
   </div>
 </div>

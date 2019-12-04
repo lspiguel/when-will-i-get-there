@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommutesService } from '../commutes.service';
+import { CommutesService } from '../../services/commutes.service';
 
 @Component({
   selector: 'app-commute-list',
