@@ -27,21 +27,38 @@ namespace WhenWillIGetThere.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Commutes>>> GetCommutes()
         {
-            return await _context.Commutes.ToListAsync();
+            // :D --> SELECT c.* FROM Commutes c JOIN Routes r ON r.Id = c.RouteId WHERE r.UserId = @userid
+            return await _context.Routes
+                            .Where(r => r.UserId == this.CurrentUserId())
+                            .Join(_context.Commutes,
+                                  r => r.Id,
+                                  c => c.Route.Id,
+                                  (r, c) => c)
+                            .ToListAsync();
         }
 
         // GET: api/Commutes/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Commutes>> GetCommutes(int id)
         {
-            var commutes = await _context.Commutes.FindAsync(id);
+            var commutes = await _context.Commutes
+                                    .Where(c => c.Id == id)
+                                    .Join(_context.Routes,
+                                          c => c.Route.Id,
+                                          r => r.Id,
+                                          (c, r) => c)
+                                    .ToListAsync();
 
             if (commutes == null)
             {
                 return NotFound();
             }
+            if (commutes.Count > 0)
+            {
+                return BadRequest();
+            }
 
-            return commutes;
+            return commutes.FirstOrDefault();
         }
 
         // PUT: api/Commutes/5
@@ -53,6 +70,12 @@ namespace WhenWillIGetThere.Controllers
             if (id != commutes.Id)
             {
                 return BadRequest();
+            }
+
+            var route = await _context.Routes.FindAsync(commutes.RouteId);
+            if(route.UserId != this.CurrentUserId())
+            {
+                return Unauthorized();
             }
 
             _context.Entry(commutes).State = EntityState.Modified;
@@ -83,6 +106,13 @@ namespace WhenWillIGetThere.Controllers
         public async Task<ActionResult<Commutes>> PostCommutes(Commutes commutes)
         {
             _context.Commutes.Add(commutes);
+
+            var route = await _context.Routes.FindAsync(commutes.RouteId);
+            if (route.UserId != this.CurrentUserId())
+            {
+                return Unauthorized();
+            }
+
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetCommutes", new { id = commutes.Id }, commutes);
@@ -97,6 +127,11 @@ namespace WhenWillIGetThere.Controllers
             {
                 return NotFound();
             }
+            var route = await _context.Routes.FindAsync(commutes.RouteId);
+            if (route.UserId != this.CurrentUserId())
+            {
+                return Unauthorized();
+            }
 
             _context.Commutes.Remove(commutes);
             await _context.SaveChangesAsync();
@@ -106,7 +141,13 @@ namespace WhenWillIGetThere.Controllers
 
         private bool CommutesExists(int id)
         {
-            return _context.Commutes.Any(e => e.Id == id);
+            return _context.Commutes
+                            .Where(c => c.Id == id)
+                            .Join(_context.Routes,
+                                    c => c.Route.Id,
+                                    r => r.Id,
+                                    (c, r) => c)
+                            .Any();
         }
     }
 }

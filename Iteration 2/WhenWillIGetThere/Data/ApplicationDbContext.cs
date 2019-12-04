@@ -16,7 +16,7 @@ namespace WhenWillIGetThere.Data
         {
         }
 
-        //public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
+        public virtual DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public virtual DbSet<Commutes> Commutes { get; set; }
         public virtual DbSet<Routes> Routes { get; set; }
 
@@ -24,24 +24,24 @@ namespace WhenWillIGetThere.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            //modelBuilder.Entity<AspNetUsers>(entity =>
-            //{
-            //    entity.HasIndex(e => e.NormalizedEmail)
-            //        .HasName("EmailIndex");
+            modelBuilder.Entity<ApplicationUser>(entity =>
+            {
+                entity.HasIndex(e => e.NormalizedEmail)
+                    .HasName("EmailIndex");
 
-            //    entity.HasIndex(e => e.NormalizedUserName)
-            //        .HasName("UserNameIndex")
-            //        .IsUnique()
-            //        .HasFilter("([NormalizedUserName] IS NOT NULL)");
+                entity.HasIndex(e => e.NormalizedUserName)
+                    .HasName("UserNameIndex")
+                    .IsUnique()
+                    .HasFilter("([NormalizedUserName] IS NOT NULL)");
 
-            //    entity.Property(e => e.Email).HasMaxLength(256);
+                entity.Property(e => e.Email).HasMaxLength(256);
 
-            //    entity.Property(e => e.NormalizedEmail).HasMaxLength(256);
+                entity.Property(e => e.NormalizedEmail).HasMaxLength(256);
 
-            //    entity.Property(e => e.NormalizedUserName).HasMaxLength(256);
+                entity.Property(e => e.NormalizedUserName).HasMaxLength(256);
 
-            //    entity.Property(e => e.UserName).HasMaxLength(256);
-            //});
+                entity.Property(e => e.UserName).HasMaxLength(256);
+            });
 
             modelBuilder.Entity<Commutes>(entity =>
             {
@@ -52,7 +52,7 @@ namespace WhenWillIGetThere.Data
                 entity.HasOne(d => d.Route)
                     .WithMany(p => p.Commutes)
                     .HasForeignKey(d => d.RouteId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.Restrict)
                     .HasConstraintName("FK_Commutes_Routes_Id_UserId");
             });
 
@@ -66,12 +66,11 @@ namespace WhenWillIGetThere.Data
                     .IsRequired()
                     .HasMaxLength(450);
 
-                // TODO: Add extension method??
-                //entity.HasOne(d => d.User)
-                //    .WithMany(p => p.Routes)
-                //    .HasForeignKey(d => d.UserId)
-                //    .OnDelete(DeleteBehavior.ClientSetNull)
-                //    .HasConstraintName("FK_Trips_AspNetUsers_UserId");
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Routes)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.Restrict)
+                    .HasConstraintName("FK_Trips_AspNetUsers_UserId");
             });
 
             OnModelCreatingPartial(modelBuilder);

@@ -27,7 +27,7 @@ namespace WhenWillIGetThere.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Routes>>> GetRoutes()
         {
-            return await _context.Routes.ToListAsync();
+            return await _context.Routes.Where(r => r.UserId == this.CurrentUserId()).ToListAsync();
         }
 
         // GET: api/Routes/5
@@ -40,6 +40,10 @@ namespace WhenWillIGetThere.Controllers
             {
                 return NotFound();
             }
+            else if (routes.UserId != this.CurrentUserId())
+            {
+                return Unauthorized();
+            }
 
             return routes;
         }
@@ -48,14 +52,19 @@ namespace WhenWillIGetThere.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutRoutes(int id, Routes routes)
+        public async Task<IActionResult> PutRoutes(int id, Routes route)
         {
-            if (id != routes.Id)
+            if (id != route.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(routes).State = EntityState.Modified;
+            if (route.UserId != this.CurrentUserId())
+            {
+                return Unauthorized();
+            }
+
+            _context.Entry(route).State = EntityState.Modified;
 
             try
             {
@@ -82,6 +91,11 @@ namespace WhenWillIGetThere.Controllers
         [HttpPost]
         public async Task<ActionResult<Routes>> PostRoutes(Routes routes)
         {
+            if (routes.UserId != this.CurrentUserId())
+            {
+                return Unauthorized();
+            }
+
             _context.Routes.Add(routes);
             await _context.SaveChangesAsync();
 
@@ -97,6 +111,10 @@ namespace WhenWillIGetThere.Controllers
             {
                 return NotFound();
             }
+            if (routes.UserId != this.CurrentUserId())
+            {
+                return Unauthorized();
+            }
 
             _context.Routes.Remove(routes);
             await _context.SaveChangesAsync();
@@ -106,7 +124,7 @@ namespace WhenWillIGetThere.Controllers
 
         private bool RoutesExists(int id)
         {
-            return _context.Routes.Any(e => e.Id == id);
+            return _context.Routes.Any(e => e.Id == id && e.UserId == this.CurrentUserId());
         }
     }
 }

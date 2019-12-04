@@ -8,5 +8,6 @@ namespace WhenWillIGetThere.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        public virtual ICollection<Routes> Routes { get; set; }
     }
 }
